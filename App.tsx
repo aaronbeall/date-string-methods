@@ -5,6 +5,7 @@ export const App: React.StatelessComponent = () => (
   <div style={{ maxWidth: 900, margin: "20px auto" }}>
     <h1>Hello, JavaScript <code>Date</code>!</h1>
     <Alert>
+      <a style={{ float: "right" }} href="https://github.com/aaronbeall/date-string-methods">View source on Github</a>
       <p>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">MDN | Date Objects</a></p>
     </Alert>
     <DateSection />
