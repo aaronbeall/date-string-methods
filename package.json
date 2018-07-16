@@ -1,0 +1,33 @@
+{
+  "name": "date-string-methods",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/aaronbeall/date-string-methods/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronbeall/date-string-methods.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronbeall/date-string-methods/issues"
+  },
+  "homepage": "https://github.com/aaronbeall/date-string-methods#readme",
+  "dependencies": {
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/reactstrap": "^6.0.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "reactstrap": "^6.3.0"
+  },
+  "devDependencies": {
+    "parcel": "^1.9.7",
+    "typescript": "^2.9.2"
+  }
+}
