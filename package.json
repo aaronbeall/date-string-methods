@@ -4,7 +4,8 @@
   "description": "You can use the [editor on GitHub](https://github.com/aaronbeall/date-string-methods/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html --out-dir docs",
+    "start": "parcel index.html",
+    "prebuild": "rm -rf docs",
     "build": "parcel build index.html --out-dir docs --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
