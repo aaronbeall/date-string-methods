@@ -25,8 +25,8 @@ class DateSection extends React.PureComponent<{}, DateSectionState> {
 
   handleDateChange: React.ChangeEventHandler<HTMLInputElement> = e => this.setState({
     dateText: e.target.value,
-    date: new Date(e.target.value) 
-  })
+    date: new Date(e.target.value)
+  });
 
   handleNowClick: React.MouseEventHandler<HTMLButtonElement> = e => this.setState({
     dateText: new Date().toString(),
@@ -38,41 +38,52 @@ class DateSection extends React.PureComponent<{}, DateSectionState> {
     return (
       <section>
         <h3>Input date:</h3>
-        <p>
+        <div>
           <code>new Date(</code>
           <InputGroup>
             <InputGroupAddon addonType="prepend"><Button onClick={this.handleNowClick}><code>Date.now()</code></Button></InputGroupAddon>
             <Input type="text" value={dateText} placeholder="Date" onChange={this.handleDateChange} />
           </InputGroup>
           <code>)</code>
-        </p>
+        </div>
         <h3>Output strings:</h3>
-        <Table>
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>Result</th>
-            </tr>
-          </thead>
-          <tbody>
-            { [
-                "toString", 
-                "toDateString", 
-                "toTimeString", 
-                "toUTCString", 
-                "toISOString", 
-                "toLocaleString", 
-                "toLocaleDateString", 
-                "toLocaleTimeString"
-              ].map(method => (
-                <tr>
-                  <td><code>.{method}()</code></td>
-                  <td><code>"{date[method as "toString"]()}"</code></td>
-                </tr>
-              )) }
-          </tbody>
-        </Table>
+        { date.toString() != "Invalid Date" ? <DateOutputTable date={date} /> : <InvalidDateMessage /> }
+        
       </section>
     );
   }
 }
+
+const DateOutputTable: React.StatelessComponent<{ date: Date }> = ({ date }) => (
+  <Table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      { [
+          "toString", 
+          "toDateString", 
+          "toTimeString", 
+          "toUTCString", 
+          "toISOString", 
+          "toLocaleString", 
+          "toLocaleDateString", 
+          "toLocaleTimeString"
+        ].map(method => (
+          <tr key={method}>
+            <td><code>.{method}()</code></td>
+            <td><code>"{date[method as "toString"]()}"</code></td>
+          </tr>
+        )) }
+    </tbody>
+  </Table>
+);
+
+const InvalidDateMessage: React.StatelessComponent<{ error: Error; }> = ({ error }) => (
+  <Alert color="danger">
+  <p>Invalid Date Input</p>
+  </Alert>
+);
